@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'css/Auth_login.css'%}"/>
+{% endblock %}
+
+{% block title %} login {% endblock %}
+
+{% block content %}
+    <div class = 'form'>
+
+    	<form class="register" method="POST" action="">
+            {% csrf_token %}
+            <div class="err">
+            {% if error %}
+            <a id="error">Something went wrong</a>
+            {% endif %}
+            </div>
+            <h1>Login</h1>
+    		<div>
+    		email  
+    		<br>          
+    		<input type="email" name="email" class="email">
+    		</div>
+    		<br>
+    		<div>
+    		Password 
+    		<br>        
+    		<input type="password" name="password" class="password">
+    		</div>
+    		<br>
+    		<div>
+    		<button class="submit">submit</button>
+    		</div>
+            <div class = "login">
+                <a href="register">click here</a> to register
+            </div>
+    	</form>
+         <p id="or">or</p>
+          <div class="google_div">
+            <ul>
+            <li>
+                <a href="{% url "social:begin" "google-oauth2" %}" class="google_a">login with Google</a>
+            </li>
+            <br/>
+            <br/>
+            <li>
+                <a href="{% url 'social:begin' 'facebook' %}" class="google_b">Login with Facebook</a>
+            </li>
+             </ul>
+        </div>
+    </div>
+{% endblock %}

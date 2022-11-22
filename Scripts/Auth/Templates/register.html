@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'css/Auth_register.css'%}"/>
+{% endblock %}
+
+{% block title %} register {% endblock %}
+
+{% block content %}
+    <div class = 'form'>
+    	<form class="register" method="POST" action="">
+            {% csrf_token %}
+            <div class="err">
+            {% if error %}
+            <a id="error">Something went wrong</a>
+            {% endif %}
+            </div>
+            <h1>Register</h1>
+    		<div>
+    		<label> <a> Name </a> </label>             
+    		<br>
+    		<input type='text' name='name' class='name' />
+    	    </div>
+    		<br>
+    		<div>
+    		email  
+    		<br>          
+    		<input type="email" name="email" class="email">
+    		</div>
+    		<br>
+            <div>
+            DOB  
+            <br>          
+            <input type="date" name="DOB" class="DOB">
+            </div>
+            <br>
+    		<div>
+    		Password 
+    		<br>        
+    		<input type="password" name="password" class="password">
+    		</div>
+    		<br>
+    		<div>
+    		confirmPassword 
+    		<br>
+    		<input type="password" name="confirmpassword" class="confirmpassword"/>
+    		</div>
+    		<br>
+    		<div>
+    		<button class="submit">submit</button>
+    		</div>
+            <div class = "login">
+                <a href='login'>click here</a> to login
+            </div>
+    	</form>
+         <p id="or">or</p>
+        <div class="google_div">
+            <ul>
+            <li>
+                <a href="{% url "social:begin" "google-oauth2" %}" class="google_a">Sign up with Google</a>
+            </li>
+            <br/>
+            <br/>
+            <li>
+                <a href="{% url 'social:begin' 'facebook' %}" class="google_b">Sign up with Facebook</a>
+            </li>
+             </ul>
+        </div>
+    </div>
+{% endblock %}

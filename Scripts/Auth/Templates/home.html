@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block title%}home{% endblock %}
+
+{% block content %}
+<style type="text/css">
+	.contaniner{
+		margin-top:40px;
+	}
+	.google_b{
+    text-decoration: none;
+    padding:10px;
+    background:blue;
+    border-radius: 10px;
+    border-color: black;
+    color:white;
+    font-size:16px;
+    border-color:transparent;
+    transition-duration: 0.2s;
+    cursor:pointer;
+    box-shadow: 0 3px 1px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgb(0, 0, 0 , 0.19);
+
+}
+.google_b:hover{
+	cursor:pointer;
+	box-shadow: 0 8px 1px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgb(0, 0, 0 , 0.19);
+}
+.contaniner{
+	display:flex;
+	justify-content:center;
+}
+</style>
+<div class="contaniner">
+<div>
+<h1 style="text-align: center;"> Welcome Home </h1>
+<br/>
+ <a href="logout" class="google_b">Log out</a>
+</div>
+</div>
+</div>
+{% endblock %}
